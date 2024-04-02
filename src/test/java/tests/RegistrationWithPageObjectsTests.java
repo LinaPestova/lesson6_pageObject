@@ -3,9 +3,8 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
+import static com.codeborne.selenide.Condition.checked;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
@@ -27,17 +26,18 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setCurrentAddress("New address")
                 .setState("NCR")
                 .setCity("Delhi")
-                .setSubmit();
+                .setSubmit()
 
-        $$("tr").get(1).shouldHave(text("Ivanna Ivanova"));
-        $$("tr").get(2).shouldHave(text("sobaka@sobaka.ru"));
-        $$("tr").get(3).shouldHave(text("Female"));
-        $$("tr").get(4).shouldHave(text("7999999999"));
-        $$("tr").get(5).shouldHave(text("01 January,2001"));
-        $$("tr").get(6).shouldHave(text("Maths"));
-        $$("tr").get(7).shouldHave(text("Music"));
-        $$("tr").get(8).shouldHave(text("test pic.jpg"));
-        $$("tr").get(9).shouldHave(text("New address"));
-        $$("tr").get(10).shouldHave(text("NCR Delhi"));
+                .checkResultForm("Student Name", "Ivanna Ivanova")
+                .checkResultForm("Student Email", "sobaka@sobaka.ru")
+                .checkResultForm("Gender", "Female")
+                .checkResultForm("Mobile", "79999999999")
+                .checkResultForm("Date of Birth", "30 July,2008")
+                .checkResultForm("Subjects", "Math")
+                .checkResultForm("Hobbies", "Music")
+                .checkResultForm("Picture", "test pic.jpg")
+                .checkResultForm("Address", "New address")
+                .checkResultForm("State and City", "NCR Delhi");
+
     }
 }

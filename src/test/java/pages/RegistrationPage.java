@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
+import pages.components.ResultComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -24,6 +25,7 @@ public class RegistrationPage {
                             buttonSubmit = $("#submit");
 
     CalendarComponent calendarComponent = new CalendarComponent();
+    ResultComponent resultComponent = new ResultComponent();
 
 
     public RegistrationPage openPage() {
@@ -84,6 +86,10 @@ public class RegistrationPage {
     }
     public RegistrationPage setSubmit(){
         buttonSubmit.click();
+        return this;
+    }
+    public RegistrationPage checkResultForm(String key, String value) {
+        resultComponent.checkResult(key, value);
         return this;
     }
 }
