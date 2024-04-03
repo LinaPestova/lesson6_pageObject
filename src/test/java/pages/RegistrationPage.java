@@ -13,7 +13,7 @@ public class RegistrationPage {
     private SelenideElement firstNameInput = $("#firstName"),
                             lastNameInput = $("#lastName"),
                             userEmailInput = $("#userEmail"),
-                            genderWrapper = $("#genderWrapper"),
+                            genderWrapper = $("#genterWrapper"),
                             userNumberInput = $("#userNumber"),
                             calendarInput = $("#dateOfBirthInput"),
                             subjectsInput = $("#subjectsInput"),
