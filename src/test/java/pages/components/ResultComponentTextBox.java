@@ -4,10 +4,10 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class ResultComponent {
+public class ResultComponentTextBox {
     public void checkResult(String key, String value){
-        $(".table-responsive").
-                $(byText(key))
+        $("#output")
+                .$(byText(key))
                 .parent()
                 .shouldHave(text(value));
     }
